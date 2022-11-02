@@ -16,7 +16,7 @@ public class BossEnd : MonoBehaviour
     {
         if(transform.position == target.transform.position)
         {
-           // ScoreUI.SetActive(false);
+           ScoreUI.SetActive(false);
             deathMenuUI.SetActive(true);
             Time.timeScale = 0f;
         }
