@@ -8,15 +8,20 @@ public class BossEnd : MonoBehaviour
     public Transform target;
     public GameObject deathMenuUI;
     public GameObject ScoreUI;
+
+
+ 
+
     private void FixedUpdate()
     {
         if(transform.position == target.transform.position)
         {
-            ScoreUI.SetActive(false);
+           // ScoreUI.SetActive(false);
             deathMenuUI.SetActive(true);
             Time.timeScale = 0f;
         }
     }
+
 
     //private void OnCollisionEnter2D(Collision2D collision)
     //{

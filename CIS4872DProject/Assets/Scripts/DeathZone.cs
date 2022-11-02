@@ -9,7 +9,7 @@ public class DeathZone : MonoBehaviour
     public GameObject ScoreUI;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        ScoreUI.SetActive(false);
+        //ScoreUI.SetActive(false);
         deathMenuUI.SetActive(true);
         Time.timeScale = 0f;
 

@@ -7,8 +7,10 @@ public class projectile : MonoBehaviour
 
     public float speed;
 
+    public Vector3 pos;
     private Transform player;
     private Vector2 target;
+   // public PlayerMovement playerspeed; 
 
     void Start()
     {
@@ -22,7 +24,11 @@ public class projectile : MonoBehaviour
     {
 
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
+        if (transform.position == pos)
+        {
+            DestroyProjectile();
+        }
+        pos = transform.position;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -32,6 +38,10 @@ public class projectile : MonoBehaviour
             DestroyProjectile();
             
         }
+        //if (other.CompareTag("Player"))
+        //{
+        //    playerspeed.speed -= 2f; 
+        //}
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)
@@ -41,6 +51,7 @@ public class projectile : MonoBehaviour
     //        DestroyProjectile();
     //    }
     //}
+
     void DestroyProjectile()
     {
         Destroy(gameObject);

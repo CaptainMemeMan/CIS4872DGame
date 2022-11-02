@@ -16,16 +16,25 @@ public class EnemyS : MonoBehaviour
     public GameObject projectile;
 
 
+    public bool facingRight = false;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
+       
         timeBetweenShots = startTimeBetweenShots;
+        
     }
 
 
     void Update()
     {
+
+        if (player.transform.position.x > gameObject.transform.position.x && facingRight)
+            Flip();
+        if (player.transform.position.x < gameObject.transform.position.x && !facingRight)
+            Flip();
+
 
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
@@ -44,10 +53,21 @@ public class EnemyS : MonoBehaviour
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             timeBetweenShots = startTimeBetweenShots;
+
         }
         else
         {
             timeBetweenShots -= Time.deltaTime;
         }
     }
+    void Flip()
+    {
+        //here your flip funktion, as example
+        facingRight = !facingRight;
+        Vector3 tmpScale = gameObject.transform.localScale;
+        tmpScale.x *= -1;
+        gameObject.transform.localScale = tmpScale;
+    }
+
+
 }

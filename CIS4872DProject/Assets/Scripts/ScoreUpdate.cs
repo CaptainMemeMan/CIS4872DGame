@@ -19,7 +19,7 @@ public class ScoreUpdate : MonoBehaviour
     void Start()
     {
         scoreAmount = 6f;
-        scoreDeincrement = 1;
+        scoreDeincrement = 0;
     }
 
     // Update is called once per frame
