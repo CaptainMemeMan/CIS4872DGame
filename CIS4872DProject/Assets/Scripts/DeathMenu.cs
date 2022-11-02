@@ -10,9 +10,9 @@ public class DeathMenu : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1f;
         deathMenuUI.SetActive(false);
         SceneManager.LoadScene(1);
-        Time.timeScale = 1f;
     }
 
     public void LoadMenu()
